@@ -22,10 +22,6 @@ import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-/**
- *
- * @author Raven
- */
 public class MenuItem extends JPanel {
 
     public boolean isMenuShow() {
@@ -91,7 +87,8 @@ public class MenuItem extends JPanel {
                 + "foreground:$Menu.lineColor");
         for (int i = 0; i < menus.length; i++) {
             JButton menuItem = createButtonItem(menus[i]);
-            menuItem.setHorizontalAlignment(menuItem.getComponentOrientation().isLeftToRight() ? JButton.LEADING : JButton.TRAILING);
+            menuItem.setHorizontalAlignment(
+                    menuItem.getComponentOrientation().isLeftToRight() ? JButton.LEADING : JButton.TRAILING);
             if (i == 0) {
                 menuItem.setIcon(getIcon());
                 menuItem.addActionListener((ActionEvent e) -> {
@@ -99,7 +96,8 @@ public class MenuItem extends JPanel {
                         if (menu.isMenuFull()) {
                             MenuAnimation.animate(MenuItem.this, !menuShow);
                         } else {
-                            popup.show(MenuItem.this, (int) MenuItem.this.getWidth() + UIScale.scale(5), UIScale.scale(menuItemHeight) / 2);
+                            popup.show(MenuItem.this, (int) MenuItem.this.getWidth() + UIScale.scale(5),
+                                    UIScale.scale(menuItemHeight) / 2);
                         }
                     } else {
                         menu.runEvent(menuIndex, 0);
@@ -161,7 +159,8 @@ public class MenuItem extends JPanel {
                 if (com instanceof JButton) {
                     JButton button = (JButton) com;
                     button.setText(menus[i]);
-                    button.setHorizontalAlignment(getComponentOrientation().isLeftToRight() ? JButton.LEFT : JButton.RIGHT);
+                    button.setHorizontalAlignment(
+                            getComponentOrientation().isLeftToRight() ? JButton.LEFT : JButton.RIGHT);
                 }
             }
         } else {

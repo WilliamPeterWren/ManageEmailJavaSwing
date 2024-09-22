@@ -18,27 +18,23 @@ import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import raven.menu.mode.ToolBarAccentColor;
 
-/**
- *
- * @author Raven
- */
 public class Menu extends JPanel {
 
     private final String menuItems[][] = {
-        {"~MAIN~"},
-        {"Dashboard"},
-        {"~WEB APP~"},
-        {"Email", "Inbox", "Read", "Compost"},
-        {"Chat"},
-        {"Calendar"},
-        {"~COMPONENT~"},
-        {"Advanced UI", "Cropper", "Owl Carousel", "Sweet Alert"},
-        {"Forms", "Basic Elements", "Advanced Elements", "Editors", "Wizard"},
-        {"~OTHER~"},
-        {"Charts", "Apex", "Flot", "Peity", "Sparkline"},
-        {"Icons", "Feather Icons", "Flag Icons", "Mdi Icons"},
-        {"Special Pages", "Blank page", "Faq", "Invoice", "Profile", "Pricing", "Timeline"},
-        {"Logout"}
+            { "~MAIN~" },
+            { "Dashboard" },
+            { "~WEB APP~" },
+            { "Email", "Inbox", "Sent", "Important" },
+            { "Chat" },
+            { "Calendar" },
+            { "~COMPONENT~" },
+            { "Advanced UI", "Cropper", "Owl Carousel", "Sweet Alert" },
+            { "Forms", "Basic Elements", "Advanced Elements", "Editors", "Wizard" },
+            { "~OTHER~" },
+            { "Charts", "Apex", "Flot", "Peity", "Sparkline" },
+            { "Icons", "Feather Icons", "Flag Icons", "Mdi Icons" },
+            { "Special Pages", "Blank page", "Faq", "Invoice", "Profile", "Pricing", "Timeline" },
+            { "Logout" }
     };
 
     public boolean isMenuFull() {
@@ -65,7 +61,7 @@ public class Menu extends JPanel {
 
     private final List<MenuEvent> events = new ArrayList<>();
     private boolean menuFull = true;
-    private final String headerName = "Raven Channel";
+    private final String headerName = "GMail Channel";
 
     protected final boolean hideMenuTitleOnMinimum = true;
     protected final int menuTitleLeftInset = 5;
@@ -90,7 +86,7 @@ public class Menu extends JPanel {
                 + "font:$Menu.header.font;"
                 + "foreground:$Menu.foreground");
 
-        //  Menu
+        // Menu
         scroll = new JScrollPane();
         panelMenu = new JPanel(new MenuItemLayout(this));
         panelMenu.putClientProperty(FlatClientProperties.STYLE, ""
@@ -247,7 +243,7 @@ public class Menu extends JPanel {
                 int hgap = menuFull ? sheaderFullHgap : 0;
                 int accentColorHeight = 0;
                 if (toolBarAccentColor.isVisible()) {
-                    accentColorHeight = toolBarAccentColor.getPreferredSize().height+gap;
+                    accentColorHeight = toolBarAccentColor.getPreferredSize().height + gap;
                 }
 
                 header.setBounds(x + hgap, y, iconWidth - (hgap * 2), iconHeight);
@@ -255,7 +251,7 @@ public class Menu extends JPanel {
                 int ldWidth = width - ldgap * 2;
                 int ldHeight = lightDarkMode.getPreferredSize().height;
                 int ldx = x + ldgap;
-                int ldy = y + height - ldHeight - ldgap  - accentColorHeight;
+                int ldy = y + height - ldHeight - ldgap - accentColorHeight;
 
                 int menux = x;
                 int menuy = y + iconHeight + gap;
