@@ -2,46 +2,61 @@ package raven.application.form.other;
 
 import com.formdev.flatlaf.FlatClientProperties;
 
-/**
- *
- * @author Raven
- */
+import raven.application.form.LoginForm;
+import javax.swing.*;
+
 public class FormRead extends javax.swing.JPanel {
+        private static JTextArea inboxTextArea;
 
-    public FormRead() {
-        initComponents();
-        lb.putClientProperty(FlatClientProperties.STYLE, ""
-                + "font:$h1.font");
-    }
+        public FormRead() {
+                initComponents();
+                lb.putClientProperty(FlatClientProperties.STYLE, ""
+                                + "font:$h1.font");
+        }
 
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+        // @SuppressWarnings("unchecked")
+        private void initComponents() {
 
-        lb = new javax.swing.JLabel();
+                String accessToken = LoginForm.accesstoken;
+                String maxResults = "2";
+                String labelIds = "SENT";
 
-        lb.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lb.setText("Read");
+                inboxTextArea = FormInbox.fetchData(accessToken, maxResults, labelIds);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lb, javax.swing.GroupLayout.DEFAULT_SIZE, 794, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lb, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-    }// </editor-fold>//GEN-END:initComponents
+                lb = new javax.swing.JLabel();
+                JScrollPane scrollPane = new JScrollPane(inboxTextArea);
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lb;
-    // End of variables declaration//GEN-END:variables
+                lb.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                lb.setText("Sent");
+
+                javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+                this.setLayout(layout);
+                layout.setHorizontalGroup(
+                                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(layout.createSequentialGroup()
+                                                                .addContainerGap()
+                                                                .addComponent(lb, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                794, Short.MAX_VALUE)
+                                                                .addContainerGap())
+                                                .addComponent(scrollPane));
+
+                layout.setVerticalGroup(
+                                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(layout.createSequentialGroup()
+                                                                .addContainerGap()
+                                                                .addComponent(lb,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                50,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(
+                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(scrollPane,
+                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                400,
+                                                                                Short.MAX_VALUE)
+                                                                .addContainerGap()));
+        }
+
+        private javax.swing.JLabel lb;
+
 }

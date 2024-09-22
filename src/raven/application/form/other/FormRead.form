@@ -37,7 +37,7 @@
     <Component class="javax.swing.JLabel" name="lb">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Read"/>
+        <Property name="text" type="java.lang.String" value="Sent"/>
       </Properties>
     </Component>
   </SubComponents>

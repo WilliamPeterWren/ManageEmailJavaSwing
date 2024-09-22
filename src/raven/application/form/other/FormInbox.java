@@ -13,10 +13,8 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
-/**
- *
- * @author Raven
- */
+import raven.application.form.LoginForm;
+
 public class FormInbox extends javax.swing.JPanel {
 
     public FormInbox() {
@@ -25,10 +23,10 @@ public class FormInbox extends javax.swing.JPanel {
                 + "font:$h1.font");
     }
 
-    @SuppressWarnings("unchecked")
+    // @SuppressWarnings("unchecked")
     private void initComponents() {
 
-        String accessToken = "ya29.a0AcM612x-fVNjjkSlRieXlPDTWj6qXaDqYj2cl5nt1qPgVSgDHz-FghM7yqDn517fo2eiX_PuO3XBaEkyrbfjkH6YeOM77shd1bJCOFfl7spx3wMB-DQf2mIAvdGA4xq8Pw6MRpD5nvHoyO6fgFEuHLcG1IfT4_6A2rUaCgYKAUwSARISFQHGX2Mik0aDkNvg3UE75Cv_kDfqRw0170";
+        String accessToken = LoginForm.accesstoken;
         String maxResults = "2";
         String labelIds = "INBOX";
 
@@ -61,7 +59,7 @@ public class FormInbox extends javax.swing.JPanel {
                                 .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 400,
                                         Short.MAX_VALUE)
                                 .addContainerGap()));
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
     public static byte[] decodeBase64(String base64String) {
         String correctedBase64 = base64String.replace('-', '+').replace('_', '/');
@@ -97,7 +95,6 @@ public class FormInbox extends javax.swing.JPanel {
         }
     }
 
-    // Method to create a file from the byte array
     public static void createFileFromBytes(byte[] bytes, String filePath) throws Exception {
         try (FileOutputStream fos = new FileOutputStream(filePath)) {
             fos.write(bytes);
@@ -152,13 +149,13 @@ public class FormInbox extends javax.swing.JPanel {
                                 String base64String = dataBase64.asText();
                                 String filename = filenameNode.asText();
                                 byte[] bytes = decodeBase64(base64String);
-                                String mimeType = getMimeType(filename);
-                                System.out.println("MIME Type: " + mimeType);
+                                // String mimeType = getMimeType(filename);
+                                // System.out.println("MIME Type: " + mimeType);
                                 String desktopPath = System.getProperty("user.home") + "/Desktop/" + filename;
 
                                 createFileFromBytes(bytes, desktopPath);
 
-                                System.out.println("File created successfully at: " + desktopPath);
+                                // System.out.println("File created successfully at: " + desktopPath);
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -185,9 +182,7 @@ public class FormInbox extends javax.swing.JPanel {
         }
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lb;
     private static JTextArea inboxTextArea;
 
-    // End of variables declaration//GEN-END:variables
 }
