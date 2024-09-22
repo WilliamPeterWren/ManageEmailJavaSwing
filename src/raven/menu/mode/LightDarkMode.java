@@ -17,10 +17,6 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-/**
- *
- * @author Raven
- */
 public class LightDarkMode extends JPanel {
 
     public void setMenuFull(boolean menuFull) {

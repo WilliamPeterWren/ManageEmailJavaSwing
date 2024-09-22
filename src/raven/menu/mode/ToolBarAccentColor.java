@@ -3,7 +3,7 @@ package raven.menu.mode;
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.icons.FlatAbstractIcon;
-import com.formdev.flatlaf.ui.FlatUIUtils;
+// import com.formdev.flatlaf.ui.FlatUIUtils;
 import com.formdev.flatlaf.util.ColorFunctions;
 import com.formdev.flatlaf.util.LoggingFacade;
 import com.formdev.flatlaf.util.UIScale;
@@ -23,10 +23,6 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import raven.menu.Menu;
 
-/**
- *
- * @author Raven
- */
 public class ToolBarAccentColor extends JPanel {
 
     private final Menu menu;
@@ -50,10 +46,10 @@ public class ToolBarAccentColor extends JPanel {
     }
 
     private final String[] accentColorKeys = {
-        "App.accent.default", "App.accent.blue", "App.accent.purple", "App.accent.red",
-        "App.accent.orange", "App.accent.yellow", "App.accent.green",};
+            "App.accent.default", "App.accent.blue", "App.accent.purple", "App.accent.red",
+            "App.accent.orange", "App.accent.yellow", "App.accent.green", };
     private final String[] accentColorNames = {
-        "Default", "Blue", "Purple", "Red", "Orange", "Yellow", "Green",};
+            "Default", "Blue", "Purple", "Red", "Orange", "Yellow", "Green", };
     private boolean menuFull = true;
 
     public ToolBarAccentColor(Menu menu) {
@@ -86,7 +82,8 @@ public class ToolBarAccentColor extends JPanel {
         ButtonGroup group = new ButtonGroup();
         selectedButton = new JToggleButton(new AccentColorIcon(accentColorKeys[0]));
         selectedButton.addActionListener((ActionEvent e) -> {
-            int y = (selectedButton.getPreferredSize().height - (toolbar.getPreferredSize().height + UIScale.scale(10))) / 2;
+            int y = (selectedButton.getPreferredSize().height - (toolbar.getPreferredSize().height + UIScale.scale(10)))
+                    / 2;
             show(ToolBarAccentColor.this, (int) getWidth() + UIScale.scale(4), y);
         });
         for (int i = 0; i < accentColorNames.length; i++) {
